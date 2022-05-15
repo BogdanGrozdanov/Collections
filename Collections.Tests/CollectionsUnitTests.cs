@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace Collections
+namespace Collections.Tests
 {
     public class Tests
     {
