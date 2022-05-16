@@ -1,14 +1,18 @@
 using NUnit.Framework;
+using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Collections.Tests
 {
     public class Tests
     {
-        //    [SetUp]
-        //    public void Setup()
-        //    {
-        //    }
+        //[SetUp]
+        //public void Setup()
+        //{
+        //    Collection<int> nums = new Collection<int>();
+
+        //}
 
         [Test]
         public void Test_Collection_EmptyConstructor_()
@@ -67,5 +71,35 @@ namespace Collections.Tests
             var expected = nums.ToString();
             Assert.That(expected, Is.EqualTo("[1, 2, 3, 4, 5, 6]"));
         }
+
+        [Test]
+        public void Test_Collection_GetByIndex()
+        {
+            var nums = new Collection<int>(1, 2, 3);
+            nums[2] = 3;
+            Assert.That(nums[2], Is.EqualTo(3));
+        }
+
+        [Test]
+        public void Test_Collection_GetByInvalidIndex()
+        {
+            var nums = new Collection<int>(1, 2, 3);
+            Assert.That(() => { var expected = nums[3]; }, Throws.InstanceOf<ArgumentOutOfRangeException>());
+        }
+
+        [Test]
+        public void Test_Collection_AddRangeWithGrow()
+        {
+
+            var nums = new Collection<int>();
+            int oldCapacity = nums.Capacity;
+            var newNums = Enumerable.Range(1000, 2000).ToArray();
+            nums.AddRange(newNums);
+            string expectedNums = "[" + string.Join(", ", newNums) + "]";
+            Assert.That(nums.ToString(), Is.EqualTo(expectedNums));
+            Assert.That(nums.Capacity, Is.GreaterThanOrEqualTo(oldCapacity));
+            Assert.That(nums.Capacity, Is.GreaterThanOrEqualTo(nums.Count));
+        }
+
     }
 }
