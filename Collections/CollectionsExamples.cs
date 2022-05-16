@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Collections
 {
@@ -11,14 +12,14 @@ namespace Collections
             //Console.WriteLine("======================");
             //Console.WriteLine();
 
-            Collection<int> nums = new Collection<int>();
+            // Collection<int> nums = new Collection<int>();
             //Console.WriteLine($"Empty collection: {nums}");
             //Console.WriteLine($"Count: {nums.Count}. Capacity: {nums.Capacity}");
             //Console.WriteLine();
 
-            nums = new Collection<int>(new int[] { 10, 20, 30, 40, 50 });
-            nums.AddRange(1,2,3,4);
-            Console.WriteLine(nums.ToString());
+            //nums = new Collection<int>(new int[] { 10, 20, 30, 40, 50 });
+            //nums.AddRange(1,2,3,4);
+            //Console.WriteLine(nums.ToString());
             //Console.WriteLine(nums);
             //Console.WriteLine($"Count: {nums.Count}. Capacity: {nums.Capacity}");
             //Console.WriteLine();
@@ -65,6 +66,14 @@ namespace Collections
             //Console.WriteLine(nums);
             //Console.WriteLine($"Count: {nums.Count}. Capacity: {nums.Capacity}");
             //Console.WriteLine();
+
+
+            //var nums = new Collection<int>();
+            //int oldCapacity = nums.Capacity;
+            //var newNums = Enumerable.Range(1000, 2000).ToArray();
+            //nums.AddRange(newNums);
+            //string expectedNums = "[" + string.Join(", ", newNums) + "]";
+            //Console.WriteLine(expectedNums);
         }
     }
 }
