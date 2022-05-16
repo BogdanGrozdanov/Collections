@@ -48,12 +48,12 @@ namespace Collections
         {
             get
             {
-                this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count-1);
+                this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count - 1);
                 return this.items[index];
             }
             set
             {
-                this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count-1);
+                this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count - 1);
                 this.items[index] = value;
             }
         }
@@ -62,7 +62,7 @@ namespace Collections
         {
             this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count);
             this.EnsureCapacity();
-            for (int i = this.Count-1; i >= index; i--)
+            for (int i = this.Count - 1; i >= index; i--)
                 this.items[i + 1] = this.items[i];
             this.items[index] = item;
             this.Count++;
@@ -90,7 +90,7 @@ namespace Collections
         {
             this.CheckRange(index, nameof(index), minValue: 0, maxValue: this.Count - 1);
             T removedItem = this.items[index];
-            for (int i = index+1; i < this.Count; i++)
+            for (int i = index + 1; i < this.Count; i++)
                 this.items[i - 1] = this.items[i];
             this.Count--;
             return removedItem;
